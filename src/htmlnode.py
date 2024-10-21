@@ -1,3 +1,4 @@
+ 
 
 class HTMLNode:
     def __init__(self, tag:str=None, value:str=None, children:list=None, props:dict=None):
@@ -30,7 +31,11 @@ class LeafNode(HTMLNode):
             raise ValueError("Invalid HTML: no value")
         if self.tag == None:
             return f"{self.value}"
+        if self.tag == "img":
+            return f"<{self.tag}{self.props_to_html()}>"
         return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"
+    
+   
     
     def __repr__(self):
         return f"LeafNode({self.tag}, {self.value}, {self.props})"
@@ -51,4 +56,7 @@ class ParentNode(HTMLNode):
     
     def __repr__(self):
         return f"ParentNode({self.tag}, children: {self.children}, {self.props})"
+    
+
+
 

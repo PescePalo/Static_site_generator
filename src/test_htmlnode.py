@@ -1,5 +1,6 @@
 import unittest
-from htmlnode import HTMLNode, LeafNode, ParentNode
+from htmlnode import *
+
 
 class TestHTMLNode(unittest.TestCase):
     def test_repr(self):
@@ -77,6 +78,8 @@ class TestHTMLNode(unittest.TestCase):
             parent_node.to_html(),
             "<div><span><b>grandchild</b></span></div>",
         )
+
+
 
 if __name__ == "__name__":
     unittest.main()
